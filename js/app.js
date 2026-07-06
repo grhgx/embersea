@@ -35,7 +35,7 @@ const App = {
 
   async loadManifest() {
     try {
-      const res = await fetch('data/manifest.json');
+      const res = await fetch('./data/manifest.json');
       this.manifest = await res.json();
       this.totalChapters = this.manifest.totalChapters;
     } catch(e) {
@@ -95,7 +95,7 @@ const App = {
   async loadBatch(batchId) {
     if (this.batchCache[batchId]) return this.batchCache[batchId];
     try {
-      const res = await fetch(`data/ch_${String(batchId).padStart(2,'0')}.json`);
+      const res = await fetch(`./data/ch_${String(batchId).padStart(2,'0')}.json`);
       const data = await res.json();
       // Cache individual chapters
       for (const ch of data) {
